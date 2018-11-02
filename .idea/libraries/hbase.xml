@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="hbase">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/slf4j-log4j12-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/hadoop-core-1.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/hbase-0.94.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/zookeeper-3.4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/protobuf-java-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/commons-configuration-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/slf4j-api-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/hbase/htrace-core-2.04.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

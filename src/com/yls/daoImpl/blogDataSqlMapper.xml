@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper	namespace="com.yls.daoImpl.blogDataSqlMapper">
+	<select id="getAll" resultType="blogData">	
+		select id,user_id,user_name,gender,pic_ids,title,year,month,date,day,time,text,tag_ids,tag_names from feb
+	</select>
+	<select id="getOne" parameterType="java.util.Map" resultType="blogData">
+		select id,user_id,user_name,gender,pic_ids,title,year,month,date,day,time,text,tag_ids,tag_names from ${mon} where id = #{id}
+	</select>
+	<select id="pagination" parameterType="java.util.Map" resultType="blogData">
+		SELECT id,user_id,user_name,gender,pic_ids,title,year,month,date,day,time,text,tag_ids,tag_names FROM ${mon} WHERE tag_ids IS NULL LIMIT #{offset},10
+	</select>
+	<select id="getCount" resultType="long">
+		select count(*) from feb
+	</select>
+	
+	<insert id="add" parameterType="blogData">
+		insert into feb(id,user_id,user_name,gender,pic_ids,title,year,month,date,day,time,text,tag_ids,tag_names) values(#{id,user_id,user_name,gender,pic_ids,title,year,month,date,day,time,text,tag_ids,tag_names})
+	</insert>
+	<update id="update" parameterType="blogData">
+		update ${mon} set tag_ids = #{tag_ids},tag_names = #{tag_names} where id = #{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from feb where id = #{id}
+	</delete>
+</mapper>

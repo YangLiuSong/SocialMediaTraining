@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<context:property-placeholder location="classpath:db.properties"/>
+	<!-- 配置数据源 -->
+	<bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${user}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="driverClass" value="${driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbcUrl}"></property>
+		<property name="acquireIncrement" value="10"></property>
+		<property name="initialPoolSize" value="100"></property>
+		<property name="minPoolSize" value="5"></property>
+		<property name="maxPoolSize" value="1000"></property>
+		<property name="maxIdleTime" value="10"></property>
+
+	</bean>
+	<!--创建sqlSessionFactory
+		typeAliasesPackage :指定实体类名的包，自动将指定包下的简单类名映射成别名
+	 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">		
+		<property name="dataSource" ref="datasource" />
+		<property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
+		<property name="typeAliasesPackage" value="com.yls.domain"></property>
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	<!-- 事务管理 -->
+	<bean id ="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
+	<!-- 数据操作 -->
+	 <bean id="blogDataDao" class="com.yls.daoImpl.blogDataDaoSqlImpl">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean id="blogDataService" class="com.yls.servicesImpl.blogDataServiceSqlImpl">
+		<property name="dao" ref="blogDataDao"></property>
+	</bean>
+	<bean id = "blogDataAction" class="com.yls.actions.blogDataAction" scope="prototype">
+		<property name="service" ref="blogDataService"></property>
+	</bean>
+</beans>

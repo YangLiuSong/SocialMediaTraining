@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <CommunicationClass name="com.lijian.services.blogDataService"
+        x="456" y="121"/>
+    <CommunicationClass name="com.lijian.actions.blogDataAction" x="131" y="121">
+        <Association
+            destinationClassName="com.lijian.services.blogDataService"
+            endpointName="service" kind="Simple"/>
+        <Communication destinationClassName="com.lijian.services.blogDataService"/>
+    </CommunicationClass>
+    <CommunicationClass name="com.lijian.dao.blogDataDao" x="545" y="216"/>
+    <CommunicationClass
+        name="com.lijian.servicesImpl.blogDataServiceSqlImpl" x="131" y="217">
+        <Extension destinationClassName="com.lijian.services.blogDataService"/>
+        <Association destinationClassName="com.lijian.dao.blogDataDao"
+            endpointName="dao" kind="Simple"/>
+        <Communication destinationClassName="com.lijian.dao.blogDataDao"/>
+    </CommunicationClass>
+</ClassDiagram>

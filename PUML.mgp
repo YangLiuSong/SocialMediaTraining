@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackageAnalysis>
+    <Package name="com.lijian.actions" x="556" y="111">
+        <DependencyLink destination="com.lijian.utils"/>
+        <DependencyLink destination="com.lijian.services"/>
+        <DependencyLink destination="com.lijian.base"/>
+        <DependencyLink destination="com.lijian.domain"/>
+    </Package>
+    <Package name="com.lijian.dao" x="182" y="275">
+        <DependencyLink destination="com.lijian.domain"/>
+    </Package>
+    <Package name="com.lijian.services" x="184" y="112">
+        <DependencyLink destination="com.lijian.domain"/>
+    </Package>
+    <Package name="com.lijian.domain" x="380" y="168"/>
+    <Package name="com.lijian.base" x="353" y="69"/>
+    <Package name="com.lijian.servicesImpl" x="144" y="178">
+        <DependencyLink destination="com.lijian.dao"/>
+        <DependencyLink destination="com.lijian.services"/>
+        <DependencyLink destination="com.lijian.domain"/>
+    </Package>
+    <Package name="com.lijian.daoImpl" x="560" y="275">
+        <DependencyLink destination="com.lijian.dao"/>
+        <DependencyLink destination="com.lijian.domain"/>
+    </Package>
+    <Package name="com.lijian.utils" x="575" y="179">
+        <DependencyLink destination="com.lijian.domain"/>
+    </Package>
+</PackageAnalysis>

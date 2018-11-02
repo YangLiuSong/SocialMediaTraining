@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 请求参数中文乱码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.locale" value="zh_CN"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	<!-- 配置struts2可以应答的请求扩展名  默认为 "action,,"  -->
+	<constant name="struts.action.extension" value="action"></constant>
+    <package name="my-default" namespace="/" extends="json-default">
+		<!-- 定义新的拦截器栈  修改  prepare.alwaysInvokePrepare 属性-->
+		<interceptors>
+		    <interceptor-stack name="lijianstack">
+		        <interceptor-ref name="paramsPrepareParamsStack">
+		            <param name="prepare.alwaysInvokePrepare">false</param>
+		        </interceptor-ref>
+		    </interceptor-stack>
+		</interceptors>
+		<!-- 配置默认拦截器栈 默认为：defaultStack 
+		配置为：paramsPrepareParamsStack 可提前获取请求参数-->
+		<default-interceptor-ref name="lijianstack"></default-interceptor-ref>
+		<!--  
+			Spring 整合 Struts2 时, 在 Struts2 中配置的 Spring 的 Action 的 class 需要指向 IOC 容器中该 bean 的 id
+		-->
+		<!-- 用户登录action -->
+		<action name="main">
+			<result>/WEB-INF/MainPages/main.jsp</result>
+		</action>
+		<action name="blogData-*" class="blogDataAction" method="{1}">
+			<result name = "list" type="json"></result>
+			<result name = "save" type="json"></result>
+			<result name = "getOne" type="json"></result>
+			<result name = "input" >/error.jsp</result>
+		</action>
+    </package>
+
+</struts>
