@@ -2,7 +2,7 @@
 var offset=0;
 var currtag_ids="";
 var currtag_names="";
-var mon_list = new Array("jan","feb","mar","apr","may","jun","jul","apr","sep","oct","nov","decc");
+var mon_list = new Array("jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","decc");
 var mon = "jan";
 
 $(function () {
@@ -184,7 +184,6 @@ function buildTime(time,id){
 }
 
 function updata_tag_food(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -211,7 +210,6 @@ function updata_tag_food(id) {
     })
 }
 function updata_tag_life(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -238,7 +236,6 @@ function updata_tag_life(id) {
     })
 }
 function updata_tag_school(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -265,7 +262,6 @@ function updata_tag_school(id) {
     })
 }
 function updata_tag_outdoor(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -292,7 +288,6 @@ function updata_tag_outdoor(id) {
     })
 }
 function updata_tag_enterment(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -319,7 +314,6 @@ function updata_tag_enterment(id) {
     })
 }
 function updata_tag_travel(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -346,7 +340,6 @@ function updata_tag_travel(id) {
     })
 }
 function updata_tag_shopping(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -373,7 +366,6 @@ function updata_tag_shopping(id) {
     })
 }
 function updata_tag_work(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
@@ -400,7 +392,6 @@ function updata_tag_work(id) {
     })
 }
 function updata_tag_others(id) {
-    getSelectTags(id);
     var data={
         "mon":mon,
         "id":id,
